@@ -1,52 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Job Scraper Project</title>
+    <title>Search Results</title>
 </head>
 <body>
-    <h1>Job Scraper Project</h1>
+    <h1>Search Results</h1>
 
-    <p>
-        This is a Flask-based job scraper project.
-    </p>
+    <p>You searched for: {{ keyword }}</p>
 
-    <h2>Project Description</h2>
+    <p>Total jobs found: {{ jobs|length }}</p>
 
-    <p>
-        Users can search job keywords such as python,
-        javascript, and java.
-    </p>
+    <a href="/">Go back</a>
 
-    <p>
-        The app scrapes job results from:
-    </p>
+    <hr>
 
-    <ul>
-        <li>Berlin Startup Jobs</li>
-        <li>Web3 Career</li>
-        <li>We Work Remotely</li>
-    </ul>
+    {% for job in jobs %}
+        <div>
+            <h2>{{ job.title }}</h2>
 
-    <h2>How to Run Locally</h2>
+            <p>Company: {{ job.company }}</p>
+            <p>Location: {{ job.location }}</p>
+            <p>Source: {{ job.source }}</p>
 
-    <pre>
-pip install flask requests beautifulsoup4
-python app.py
-    </pre>
+            <a href="{{ job.link }}" target="_blank">
+                Apply
+            </a>
+        </div>
 
-    <p>
-        Then open:
-    </p>
-
-    <pre>
-http://127.0.0.1:5000
-    </pre>
-
-    <h2>Note</h2>
-
-    <p>
-        GitHub Pages can host only static pages.
-        Therefore, the Flask server must be run locally.
-    </p>
+        <hr>
+    {% endfor %}
 </body>
 </html>
