@@ -1,33 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Search Results</title>
+  <meta charset="UTF-8">
+  <title>Job Scraper Project</title>
 </head>
 <body>
-    <h1>Search Results</h1>
+  <h1>Job Scraper Project</h1>
 
-    <p>You searched for: {{ keyword }}</p>
+  <p>
+    This project is a Python Flask web scraper that searches job postings
+    and displays the results in a web page.
+  </p>
 
-    <p>Total jobs found: {{ jobs|length }}</p>
+  <h2>Project Description</h2>
 
-    <a href="/">Go back</a>
+  <p>
+    The application allows users to enter a keyword, sends the keyword
+    to the Flask server, scrapes job data from job websites, and displays
+    the collected job results.
+  </p>
 
-    <hr>
+  <h2>Main Features</h2>
 
-    {% for job in jobs %}
-        <div>
-            <h2>{{ job.title }}</h2>
+  <ul>
+    <li>Search jobs by keyword</li>
+    <li>Scrape job title, company, location, and source</li>
+    <li>Display search results in an HTML page</li>
+    <li>Use Flask, Requests, and BeautifulSoup</li>
+  </ul>
 
-            <p>Company: {{ job.company }}</p>
-            <p>Location: {{ job.location }}</p>
-            <p>Source: {{ job.source }}</p>
+  <h2>Example Search Result</h2>
 
-            <a href="{{ job.link }}" target="_blank">
-                Apply
-            </a>
-        </div>
+  <div>
+    <h3>Python Developer</h3>
+    <p><strong>Company:</strong> Example Company</p>
+    <p><strong>Location:</strong> Dublin, Ireland</p>
+    <p><strong>Source:</strong> Job Website</p>
+    <p><a href="#">Apply</a></p>
+  </div>
 
-        <hr>
-    {% endfor %}
+  <hr>
+
+  <div>
+    <h3>Junior Software Engineer</h3>
+    <p><strong>Company:</strong> Sample Tech Ltd</p>
+    <p><strong>Location:</strong> Remote</p>
+    <p><strong>Source:</strong> Job Website</p>
+    <p><a href="#">Apply</a></p>
+  </div>
+
+  <h2>GitHub Repository</h2>
+
+  <p>
+    The source code for this project is available in the GitHub repository.
+  </p>
+
+  <p>
+    <a href="https://github.com/Wooseok765/job-scraper">
+      View source code on GitHub
+    </a>
+  </p>
 </body>
 </html>
