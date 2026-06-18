@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+
+    <p>You searched for: {{ keyword }}</p>
+
+    <p>Total jobs found: {{ jobs|length }}</p>
+
+    <a href="/">Go back</a>
+
+    <hr>
+
+    {% for job in jobs %}
+        <div>
+            <h2>{{ job.title }}</h2>
+
+            <p>Company: {{ job.company }}</p>
+            <p>Location: {{ job.location }}</p>
+            <p>Source: {{ job.source }}</p>
+
+            <a href="{{ job.link }}" target="_blank">
+                Apply
+            </a>
+        </div>
+
+        <hr>
+    {% endfor %}
+</body>
+</html>
